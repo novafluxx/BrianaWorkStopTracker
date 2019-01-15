@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkStopTracker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Stop Time Logging" Width="240" Height="80">
     <Grid>
-        
+        <Button x:Name="startLogBtn" Content="Start Logging" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="10,10,0,0" Click="StartLogBtn_Click" FontSize="14"/>
+        <Button x:Name="StopLogBtn" Content="Stop Logging" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="120,10,0,0" IsEnabled="False" Click="StopLogBtn_Click" FontSize="14"/>
+
     </Grid>
 </Window>
