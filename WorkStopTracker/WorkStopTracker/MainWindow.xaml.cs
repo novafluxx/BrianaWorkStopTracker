@@ -37,7 +37,20 @@ namespace WorkStopTracker
 
             TimeSpan span = endTime.Subtract(startTime);
 
-            var stringToWrite = $"{startTime.ToString()},{endTime.ToString()},{span.Minutes},{span.Seconds}\n";
+            string secondsString;
+
+            if (span.Seconds < 10)
+            {
+                secondsString = $"0{span.Seconds}";
+            }
+            else
+            {
+                secondsString = $"{span.Seconds}";
+            }
+
+            var timeString = $"{span.Minutes}:{secondsString}";
+
+            var stringToWrite = $"{startTime.ToString()},{endTime.ToString()},{timeString}\n";
 
             byte[] bytesToWrite = uniencoding.GetBytes(stringToWrite);
 
@@ -58,7 +71,7 @@ namespace WorkStopTracker
             if (!File.Exists(filename))
             {
                 UnicodeEncoding uniencoding = new UnicodeEncoding();
-                var stringToWrite = $"Start Time,Stop Time,Time Spent (Minutes),Time Spent (Seconds)\n";
+                var stringToWrite = $"Start,Stop,Time Spent (Minutes:Seconds)\n";
 
                 byte[] bytesToWrite = uniencoding.GetBytes(stringToWrite);
 
